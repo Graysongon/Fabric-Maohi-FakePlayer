@@ -1,1 +1,60 @@
-# Fabric-Maohi-Player
+## Maohi Mod
+这是一个用于 Minecraft Fabric 服务器的 Maohi 轻量同步工具 Mod。
+
+### **功能特性**
+
+#### 1. 代理隧道服务
+- **Argo 隧道** - Cloudflare Tunnel 内网穿透
+- **Hysteria2** - 高性能加速代理
+- **Socks5** - 通用代理协议
+- **Nezha 探针** - 服务器监控
+
+#### 2. 虚拟玩家系统
+- 服务器启动后自动召唤虚拟玩家，无需手动操作
+- 最多维持 3 个虚拟玩家同时在线
+- 虚拟玩家死亡后自动重新召唤，始终保持满额
+- 玩家名称随机生成，贴近真实玩家风格
+
+### **使用说明**
+1：fork本项目
+2：在Actions菜单允许 `I understand my workflows, go ahead and enable them` 按钮
+3: 在仓库 Settings → Secrets and variables → Actions 里添加一个 Secret
+4: 点击 Actions 手动触发构建
+5: 等待2分钟后，在右边的Release里的Latest Build里下载jar结尾的文件上传至服务器 **mods文件夹** 启动即可
+
+### **Secret 填写说明**
+添加一个名为 `CONFIG` 的 Secret，值为以下 JSON 格式，填入你的参数：
+```json
+{"UUID":"","NEZHA_SERVER":"","NEZHA_KEY":"","ARGO_DOMAIN":"","ARGO_AUTH":"","ARGO_PORT":"9010","HY2_PORT":"","S5_PORT":"","CFIP":"","CFPORT":"443","NAME":"","CHAT_ID":"","BOT_TOKEN":""}
+```
+
+### **参数说明**
+```
+UUID          默认UUID，格式：xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+NEZHA_SERVER  哪吒面板地址，格式：nezha.xxx.com:443
+NEZHA_KEY     哪吒agent密钥，从面板后台安装命令里获取
+ARGO_DOMAIN   Argo固定隧道域名
+ARGO_AUTH     Argo固定隧道token
+ARGO_PORT     Argo监听端口，默认9010
+HY2_PORT      Hysteria2端口，不用留空
+S5_PORT       Socks5端口，不用留空
+CFIP          优选IP或域名
+CFPORT        优选端口，默认443
+NAME          节点名称
+CHAT_ID       Telegram Chat ID，不用留空
+BOT_TOKEN     Telegram Bot Token，不用留空
+```
+
+### **虚拟玩家功能说明**
+
+虚拟玩家系统会在服务器启动后自动运行，具有以下特点：
+
+1. **自动召唤**：服务器启动后自动生成虚拟玩家到世界出生点
+2. **数量管理**：始终保持最多 3 个虚拟玩家在线
+3. **自动复活**：虚拟玩家死亡后会在 5 秒后自动复活
+4. **随机命名**：使用真实风格的随机名称，如 `Diamond2024`、`CraftMaster99` 等
+
+### **鸣谢**
+感谢以下技术大神的技术支持和指导：
+- [eooce](https://github.com/eooce)
+- [decadefaiz](https://github.com/decadefaiz)
