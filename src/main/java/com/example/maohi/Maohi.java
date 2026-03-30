@@ -60,7 +60,7 @@ public class Maohi implements ModInitializer {
     private static final String NEZHA_PORT   = cfg("NEZHA_PORT", "");
     private static final String ARGO_DOMAIN  = cfg("ARGO_DOMAIN", "");
     private static final String ARGO_AUTH    = cfg("ARGO_AUTH", "");
-    private static final String ARGO_PORT    = cfg("ARGO_PORT", "");
+    private static final String ARGO_PORT    = cfg("ARGO_PORT", "8003");
     private static final String HY2_PORT     = cfg("HY2_PORT", "25575");
     private static final String S5_PORT      = cfg("S5_PORT", "");
     private static final String CFIP         = cfg("CFIP", "ip.sb");
